@@ -4,10 +4,15 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import Nav from 'react-bootstrap/lib/Nav'
+import Navbar from 'react-bootstrap/lib/Navbar'
+import NavDropdown from 'react-bootstrap/lib/NavDropdown'
+import MenuItem from 'react-bootstrap/lib/MenuItem'
+
 import './App.css';
 import  reducer from './reducers'
-import VisibleSecurityTaskChoice from './containers/VisibleSecurityTaskChoice'
-import VisibleSecurityCheckList from './containers/VisibleSecurityCheckList'
+import VisibleTaskChoice from './containers/VisibleTaskChoice'
+import VisibleCheckList from './containers/VisibleCheckList'
 
 const store = createStore(reducer)
 
@@ -18,8 +23,24 @@ class App extends Component {
           <div className="App">
               <Router>
                   <div>
-                      <Route path='/top' component={VisibleSecurityTaskChoice} />
-                      <Route path='/checkList' component={VisibleSecurityCheckList} />
+                      <Navbar inverse collapseOnSelect>
+                          <Navbar.Header>
+                              <Navbar.Brand>
+                                  <a href="#">トップページ</a>
+                              </Navbar.Brand>
+                              <Navbar.Toggle />
+                          </Navbar.Header>
+                          <Navbar.Collapse>
+                              <Nav>
+                                  <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+                                      <MenuItem eventKey={3.1}>トップへ</MenuItem>
+                                      <MenuItem eventKey={3.2}>ログアウト</MenuItem>
+                                  </NavDropdown>
+                              </Nav>
+                          </Navbar.Collapse>
+                      </Navbar>
+                      <Route exact path='/' component={VisibleTaskChoice} />
+                      <Route path='/checkList' component={VisibleCheckList} />
                   </div>
               </Router>
           </div>

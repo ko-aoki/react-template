@@ -1,7 +1,7 @@
 import {updateObject, updateItemInArray} from '../common/UpdateUtil.js'
 
 // セキュリティ 今日のタスクリスト
-const initialSecurityTodayTaskList = [
+const initialTodayTaskList = [
     {
         id: '01',
         content: '乗用トラクターでの公道移動',
@@ -69,12 +69,13 @@ const initialSecurityTodayTaskList = [
     }
 ]
 
-const securityTodayTaskList = (state = initialSecurityTodayTaskList, action) => {
+const todayTaskList = (state = initialTodayTaskList, action) => {
     switch (action.type) {
         case 'TASK_CHECK':
             const callback = function(task){
-                task.checked = action.checked
-                return task
+                return updateObject(
+                    task, {checked: action.checked}
+                    )
             }
             return updateItemInArray(state, action.id, callback)
         default:
@@ -82,4 +83,4 @@ const securityTodayTaskList = (state = initialSecurityTodayTaskList, action) => 
     }
 }
 
-export default securityTodayTaskList
+export default todayTaskList

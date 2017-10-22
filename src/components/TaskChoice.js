@@ -4,14 +4,10 @@ import Grid from 'react-bootstrap/lib/Grid'
 import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
 import Checkbox from 'react-bootstrap/lib/Checkbox'
-import Nav from 'react-bootstrap/lib/Nav'
-import Navbar from 'react-bootstrap/lib/Navbar'
-import NavDropdown from 'react-bootstrap/lib/NavDropdown'
-import MenuItem from 'react-bootstrap/lib/MenuItem'
+
 import {taskCheck} from  '../actions'
 
-class SecurityTaskChoice extends React.Component
-{
+class TaskChoice extends React.Component {
 
     constructor(props) {
         super(props)
@@ -20,22 +16,6 @@ class SecurityTaskChoice extends React.Component
     render() {
         return (
             <div>
-                <Navbar inverse collapseOnSelect>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <a href="#">トップページ</a>
-                        </Navbar.Brand>
-                        <Navbar.Toggle />
-                    </Navbar.Header>
-                    <Navbar.Collapse>
-                        <Nav>
-                            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                                <MenuItem eventKey={3.1}>トップへ</MenuItem>
-                                <MenuItem eventKey={3.2}>ログアウト</MenuItem>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
                 <div className="row">
                     <Grid>
                         <Row className="show-grid">
@@ -50,9 +30,9 @@ class SecurityTaskChoice extends React.Component
                             <Col md={6}>
                                 <ul className="list-group">
                                     {
-                                        this.props.securityTodayTaskList.map(task =>
+                                        this.props.todayTaskList.map(task =>
                                             <li className="list-group-item" key={task.id}>
-                                                <Checkbox name={'task' + task.id} check={task.checked}
+                                                <Checkbox name={'task' + task.id} check={task.checked ? 'checked' : ''}
                                                           onClick={() => this.props.onCheckClick(task.id, !task.checked)} >
                                                     {task.content}
                                                 </Checkbox>
@@ -63,10 +43,10 @@ class SecurityTaskChoice extends React.Component
                             </Col>
                             <Col md={6}>
                                 {
-                                    this.props.securityTodayTaskList.filter(
+                                    this.props.todayTaskList.filter(
                                         (task) => task.checked === true
                                     ).map(task =>
-                                        <li class="list-group-item" key={task.id}>
+                                        <li className="list-group-item" key={task.id}>
                                                 {task.content}
                                         </li>
                                     )
@@ -88,4 +68,4 @@ class SecurityTaskChoice extends React.Component
     }
 }
 
-export default SecurityTaskChoice
+export default TaskChoice

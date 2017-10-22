@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import securityTodayTaskList from './securityTodayTaskList'
-import securityCheckList from './securityCheckList'
+import todayTaskList from './todayTaskList'
+import checkList from './checkList'
 // import visibilityFilter from './visibilityFilter'
 
 const reducer = combineReducers({
-  securityTodayTaskList,
-    securityCheckList
+  todayTaskList,
+  checkList
 //  visibilityFilter
 })
 
