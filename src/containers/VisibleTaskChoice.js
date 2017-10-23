@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  onCheckClick: taskCheck
+  onCheckChange: taskCheck
 }
 
 const VisibleTaskChoice = connect(

@@ -9,15 +9,17 @@ import Navbar from 'react-bootstrap/lib/Navbar'
 import NavDropdown from 'react-bootstrap/lib/NavDropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 
-import './App.css';
-import  reducer from './reducers'
+import reducer from './reducers'
 import VisibleTaskChoice from './containers/VisibleTaskChoice'
 import VisibleCheckList from './containers/VisibleCheckList'
+
+import './App.css';
 
 const store = createStore(reducer)
 
 class App extends Component {
   render() {
+      console.log(store.getState())
     return (
         <Provider store={store}>
           <div className="App">
@@ -39,8 +41,8 @@ class App extends Component {
                               </Nav>
                           </Navbar.Collapse>
                       </Navbar>
-                      <Route exact path='/' component={VisibleTaskChoice} />
-                      <Route path='/checkList' component={VisibleCheckList} />
+                      <Route exact path="/" component={VisibleTaskChoice} />
+                      <Route path="/checkList" component={VisibleCheckList} />
                   </div>
               </Router>
           </div>

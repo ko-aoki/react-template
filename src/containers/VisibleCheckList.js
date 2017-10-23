@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { taskCheck } from '../actions'
 import CheckList from '../components/CheckList'
 
 const getVisibleCheckList = (checkList) => {
@@ -7,6 +6,7 @@ const getVisibleCheckList = (checkList) => {
 }
 
 const mapStateToProps = (state) => ({
+    // 前画面のチェック対象
   checkList: getVisibleCheckList(state.todayTaskList)
 })
 

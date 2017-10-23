@@ -1,7 +1,7 @@
 import {updateObject, updateItemInArray} from '../common/UpdateUtil.js'
 
 // セキュリティ 今日のタスクリスト
-const initialTodayTaskList = [
+export const initialTodayTaskList = [
     {
         id: '01',
         content: '乗用トラクターでの公道移動',
@@ -77,7 +77,9 @@ const todayTaskList = (state = initialTodayTaskList, action) => {
                     task, {checked: action.checked}
                     )
             }
-            return updateItemInArray(state, action.id, callback)
+            return Object.assign([],
+                    updateItemInArray(state, action.id, callback)
+                )
         default:
             return state
     }

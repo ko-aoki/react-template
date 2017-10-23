@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Grid from 'react-bootstrap/lib/Grid'
 import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
+import Button from 'react-bootstrap/lib/Button'
+
+import {LinkContainer} from 'react-router-bootstrap'
 
 export default class CheckList extends React.Component {
 
@@ -36,6 +39,18 @@ export default class CheckList extends React.Component {
                                         </li>
                                     )
                                 }
+                            </Col>
+                        </Row>
+                        <Row className="show-grid">
+                            <Col md={6}>
+                                <LinkContainer to="./">
+                                    <Button bsStyle='warning' bsSize='lg'>戻る</Button>
+                                </LinkContainer>
+                            </Col>
+                            <Col md={6}>
+                                <LinkContainer to="./checkList">
+                                    <Button bsStyle='info' bsSize='lg'>次へ</Button>
+                                </LinkContainer>
                             </Col>
                         </Row>
                     </Grid>

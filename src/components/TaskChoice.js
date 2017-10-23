@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/lib/Button'
 import Grid from 'react-bootstrap/lib/Grid'
 import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
 import Checkbox from 'react-bootstrap/lib/Checkbox'
 
-import {taskCheck} from  '../actions'
+import {LinkContainer} from 'react-router-bootstrap'
 
 class TaskChoice extends React.Component {
 
     constructor(props) {
+        console.log(props)
         super(props)
     }
 
@@ -32,8 +33,8 @@ class TaskChoice extends React.Component {
                                     {
                                         this.props.todayTaskList.map(task =>
                                             <li className="list-group-item" key={task.id}>
-                                                <Checkbox name={'task' + task.id} check={task.checked ? 'checked' : ''}
-                                                          onClick={() => this.props.onCheckClick(task.id, !task.checked)} >
+                                                <Checkbox name={'task' + task.id} checked={task.checked ? 'checked' : ''}
+                                                          onChange={() => this.props.onCheckChange(task.id, !task.checked)} >
                                                     {task.content}
                                                 </Checkbox>
                                             </li>
@@ -55,10 +56,14 @@ class TaskChoice extends React.Component {
                         </Row>
                         <Row className="show-grid">
                             <Col md={6}>
-                                <Button bsStyle='warning' bsSize='lg' href='/'>戻る</Button>
+                                <LinkContainer to="./">
+                                    <Button bsStyle='warning' bsSize='lg'>戻る</Button>
+                                </LinkContainer>
                             </Col>
                             <Col md={6}>
-                                <Button bsStyle='info' bsSize='lg' href='./checkList'>次へ</Button>
+                                <LinkContainer to="./checkList">
+                                    <Button bsStyle='info' bsSize='lg'>次へ</Button>
+                                </LinkContainer>
                             </Col>
                         </Row>
                     </Grid>
