@@ -77,9 +77,7 @@ const todayTaskList = (state = initialTodayTaskList, action) => {
                     task, {checked: action.checked}
                     )
             }
-            return Object.assign([],
-                    updateItemInArray(state, action.id, callback)
-                )
+            return updateItemInArray(state, action.id, callback)
         default:
             return state
     }
