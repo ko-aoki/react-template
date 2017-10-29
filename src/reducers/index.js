@@ -1,5 +1,4 @@
 import todayTaskList from './todayTaskList'
-import checkList from './checkList'
 
 /**
  * アクションから、アプリケーション全体のstateを変更します.
@@ -14,11 +13,7 @@ const reducer = (state = {}, action) => {
         /**
          * 今日のタスクリスト
          */
-        todayTaskList: todayTaskList(state.todayTaskList, action),
-        /**
-         * チェックリスト
-         */
-        checkList: checkList(state.checkList, action)
+        todayTaskList: todayTaskList(state.todayTaskList, action)
     }
 }
 
