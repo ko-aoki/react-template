@@ -6,10 +6,24 @@ import Button from 'react-bootstrap/lib/Button'
 
 import {LinkContainer} from 'react-router-bootstrap'
 
+import VisibleSecurityCheckReport from '../containers/VisibleSecurityCheckReport'
+
 /**
  * 「チェックリスト」の表示コンポーネント.
  */
 export default class CheckList extends React.Component {
+
+    /**
+     * 印刷を実行します.
+     */
+    printSecurityCheckReport() {
+        // localStrageにreactでrenderした内容を保存
+        localStorage.removeItem('securityCheckReport')
+        localStorage.setItem('securityCheckReport', document.getElementById('securityCheckReport').innerHTML)
+        window.open('/SecurityCheckReport.html')
+        // ローカル実行
+        // window.open('./SecurityCheckReport.html')
+    }
 
     render() {
         return (
@@ -44,16 +58,24 @@ export default class CheckList extends React.Component {
                                 }
                             </Col>
                         </Row>
+
+                        <dev style={{display: 'none'}}>
+                            <VisibleSecurityCheckReport/>
+                        </dev>
+
                         <Row className="show-grid">
-                            <Col md={6}>
+                            <Col md={4}>
                                 <LinkContainer to="./">
                                     <Button bsStyle='warning' bsSize='lg'>戻る</Button>
                                 </LinkContainer>
                             </Col>
-                            <Col md={6}>
+                            <Col md={4}>
                                 <LinkContainer to="./checkList">
                                     <Button bsStyle='info' bsSize='lg'>次へ</Button>
                                 </LinkContainer>
+                            </Col>
+                            <Col md={4}>
+                                <Button bsSize='lg' onClick={this.printSecurityCheckReport} >印刷</Button>
                             </Col>
                         </Row>
                     </Grid>
