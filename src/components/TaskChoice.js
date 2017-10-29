@@ -7,6 +7,9 @@ import Checkbox from 'react-bootstrap/lib/Checkbox'
 
 import {LinkContainer} from 'react-router-bootstrap'
 
+/**
+ * 「今日の作業の選択」の表示コンポーネント.
+ */
 class TaskChoice extends React.Component {
 
     constructor(props) {

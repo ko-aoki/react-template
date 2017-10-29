@@ -1,9 +1,15 @@
 //import {appState} from './appState'
 
-const checkList = (state=[], action) => {
+/**
+ * チェックリストを返却するreducer.
+ * @param checkList stateのチェックリストプロパティ
+ * @param action アクション
+ * @returns {Array} 変更されたstateのチェックリストプロパティ
+ */
+const checkList = (checkList=[], action) => {
     switch (action.type) {
         default:
-            return state
+            return checkList
     }
 }
 

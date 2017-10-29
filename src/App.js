@@ -17,6 +17,10 @@ import './App.css';
 
 const store = createStore(reducer)
 
+/**
+ * アプリケーションのコンポーネント.
+ * reduxを使用して状態管理、react-routerを使用して画面遷移を行なっています.
+ */
 class App extends Component {
   render() {
       console.log(store.getState())

@@ -6,6 +6,9 @@ import Button from 'react-bootstrap/lib/Button'
 
 import {LinkContainer} from 'react-router-bootstrap'
 
+/**
+ * 「チェックリスト」の表示コンポーネント.
+ */
 export default class CheckList extends React.Component {
 
     render() {

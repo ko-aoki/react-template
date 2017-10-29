@@ -1,6 +1,9 @@
 import {updateObject, updateItemInArray} from '../common/UpdateUtil.js'
 
-// セキュリティ 今日のタスクリスト
+/**
+ * セキュリティ 今日のタスクリストの初期state
+ * @type {[*]}
+ */
 export const initialTodayTaskList = [
     {
         id: '01',
@@ -69,7 +72,13 @@ export const initialTodayTaskList = [
     }
 ]
 
-const todayTaskList = (state = initialTodayTaskList, action) => {
+/**
+ * 今日のタスクリストを返却するreducer.
+ * @param todayTaskList stateの今日のタスクリストプロパティ
+ * @param action アクション
+ * @returns {*} 変更したstateの今日のタスクリストプロパティ
+ */
+const todayTaskList = (todayTaskList = initialTodayTaskList, action) => {
     switch (action.type) {
         case 'TASK_CHECK':
             const callback = function(task){
@@ -77,9 +86,9 @@ const todayTaskList = (state = initialTodayTaskList, action) => {
                     task, {checked: action.checked}
                     )
             }
-            return updateItemInArray(state, action.id, callback)
+            return updateItemInArray(todayTaskList, action.id, callback)
         default:
-            return state
+            return todayTaskList
     }
 }
 
