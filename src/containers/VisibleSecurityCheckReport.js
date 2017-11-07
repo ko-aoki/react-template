@@ -4,7 +4,7 @@ import SecurityCheckReport from '../components/SecurityCheckReport'
 // stateを表示コンポーネントにバインドします.
 // 本appでは、ビジネスロジックをここで記載します.
 
-const getVisibleCheckList = (checkList) => {
+export const getVisibleCheckList = (checkList) => {
   return checkList.filter(t => t.checked === true)
 }
 
