@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { taskCheck } from '../actions'
+import { checkTask } from '../actions'
 import TaskChoice from '../components/TaskChoice'
 
 /**
@@ -11,10 +11,10 @@ const mapStateToProps = (state) => ({
 })
 
 /**
- * アクション[taskCheck]をタスク選択コンポーネントのプロパティにマップします.
+ * アクション[checkTask]をタスク選択コンポーネントのプロパティにマップします.
  */
 const mapDispatchToProps = {
-  onCheckChange: taskCheck
+  onCheckChange: checkTask
 }
 
 /**

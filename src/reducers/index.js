@@ -1,4 +1,5 @@
-import todayTaskList from './todayTaskList'
+import todayTaskListReducer from './todayTaskListReducer'
+import ufovReducer from './ufovReducer'
 
 /**
  * アクションから、アプリケーション全体のstateを変更します.
@@ -16,7 +17,9 @@ const reducer = (state = {}, action) => {
         /**
          * 今日のタスクリスト
          */
-        todayTaskList: todayTaskList(state.todayTaskList, action)
+        todayTaskList: todayTaskListReducer(state.todayTaskList, action),
+        /** UFOV */
+        ufov: ufovReducer(state.ufov, action)
     }
 }
 

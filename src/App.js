@@ -12,6 +12,7 @@ import MenuItem from 'react-bootstrap/lib/MenuItem'
 import reducer from './reducers'
 import VisibleTaskChoice from './containers/VisibleTaskChoice'
 import VisibleCheckList from './containers/VisibleCheckList'
+import VisibleUfov from './containers/VisibleUfov'
 
 import './App.css';
 
@@ -45,7 +46,8 @@ class App extends Component {
                               </Nav>
                           </Navbar.Collapse>
                       </Navbar>
-                      <Route exact path="/" component={VisibleTaskChoice} />
+                      <Route exact path="/" component={VisibleUfov} />
+                      <Route path="/taskChoice" component={VisibleTaskChoice} />
                       <Route path="/checkList" component={VisibleCheckList} />
                   </div>
               </Router>
